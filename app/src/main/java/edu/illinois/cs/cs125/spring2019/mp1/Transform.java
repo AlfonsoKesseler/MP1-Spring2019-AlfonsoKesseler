@@ -6,5 +6,5 @@ public class Transform {
     /**
     test.
     */
-    private int x = 0;
+    private int[][] image;
 }
