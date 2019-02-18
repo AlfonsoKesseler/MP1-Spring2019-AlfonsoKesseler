@@ -57,7 +57,7 @@ public class TransformTest {
     }
 
     /**
-     * Class for storing inputs to position shift tests.
+     * Class for storing inputs  to position shift tests.
      */
     @SuppressWarnings("checkstyle:visibilitymodifier")
     public static class PositionShiftTestInput {
