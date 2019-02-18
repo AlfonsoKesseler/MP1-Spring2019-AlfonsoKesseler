@@ -4,10 +4,6 @@ Transform.
  */
 public class Transform {
     /**
-    Image.
-     */
-    private int[][] image;
-    /**
     Shifts left.
      @param array given array.
      @param shift how much to shift.
@@ -131,6 +127,42 @@ public class Transform {
         for (int x = 0; x < array.length; x++) {
             for (int y = 0; y < array[x].length; y++) {
                 newArray[x][y] = array[array.length - x - 1][y];
+            }
+        }
+        return newArray;
+    }
+
+    /**
+     * Flips horizontally.
+     * @param array given array.
+     * @return flipped array
+     */
+    public int[][] flipHorizontal(final int[][] array) {
+        int[][] newArray = new int[array.length][array[0].length];
+        for (int x = 0; x < array.length; x++) {
+            for (int y = 0; y < array[x].length; y++) {
+                newArray[x][y] = array[x][array[x].length - 1 - y];
+            }
+        }
+        return newArray;
+    }
+
+    /**
+     * expands horizontal.
+     * @param array given array.
+     * @param expand how much expanded.
+     * @return expanded array.
+     */
+    public int[][] expandHorizontal(final int[][] array,final int expand) {
+        int[][] newArray = new int[array.length][array[0].length];
+        int position = array.length / 2;
+        int counter = 0;
+        for (int x = 0; x < array.length / 2; x++) {
+            int distance = array.length - x;
+            int shift = distance / expand;
+            for (int y = 0; y < array[x].length; y++) {
+                newArray[x][y] = array[position - 1 - shift][y];
+                newArray[x][y] = array[position + shift][y];
             }
         }
         return newArray;
