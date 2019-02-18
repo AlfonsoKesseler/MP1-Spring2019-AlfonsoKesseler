@@ -105,6 +105,7 @@ public class Transform {
         }
         return newArray;
     }
+
     /**
      * Rotates left.
      * @param array given array.
@@ -115,6 +116,21 @@ public class Transform {
         for (int x = 0; x < array.length; x++) {
             for (int y = 0; y < array[x].length; y++) {
                 newArray[array[x].length - 1 - y][x] = array[x][y];
+            }
+        }
+        return newArray;
+    }
+
+    /**
+     * Flips vertically.
+     * @param array given array.
+     * @return flipped array
+     */
+    public int[][] flipVertical(final int[][] array) {
+        int[][] newArray = new int[array.length][array[0].length];
+        for (int x = 0; x < array.length; x++) {
+            for (int y = 0; y < array[x].length; y++) {
+                newArray[x][y] = array[array.length - x - 1][y];
             }
         }
         return newArray;
