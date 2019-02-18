@@ -105,4 +105,18 @@ public class Transform {
         }
         return newArray;
     }
+    /**
+     * Rotates left.
+     * @param array given array.
+     * @return rotated array.
+     */
+    public int[][] rotateLeft(final int[][] array) {
+        int[][] newArray = new int[array[0].length][array.length];
+        for (int x = 0; x < array.length; x++) {
+            for (int y = 0; y < array[x].length; y++) {
+                newArray[array[x].length - 1 - y][x] = array[x][y];
+            }
+        }
+        return newArray;
+    }
 }
