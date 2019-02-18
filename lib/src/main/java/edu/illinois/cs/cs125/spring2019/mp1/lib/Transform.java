@@ -153,7 +153,7 @@ public class Transform {
      * @param expand how much expanded.
      * @return expanded array.
      */
-    public int[][] expandHorizontal(final int[][] array,final int expand) {
+    public int[][] expandHorizontal(final int[][] array, final int expand) {
         int[][] newArray = new int[array.length][array[0].length];
         int position = array.length / 2;
         int counter = 0;
@@ -163,6 +163,27 @@ public class Transform {
             for (int y = 0; y < array[x].length; y++) {
                 newArray[x][y] = array[position - 1 - shift][y];
                 newArray[x][y] = array[position + shift][y];
+            }
+        }
+        return newArray;
+    }
+
+    /**
+     * expands vertically.
+     * @param array given array.
+     * @param expand how much expanded.
+     * @return expanded array.
+     */
+    public int[][] expandVertical(final int[][] array, final int expand) {
+        int[][] newArray = new int[array.length][array[0].length];
+        int position = array[0].length / 2;
+        int counter = 0;
+        for (int x = 0; x < array.length; x++) {
+            for (int y = 0; y < array[x].length / 2; y++) {
+                int distance = array[x].length - y;
+                int shift = distance / expand;
+                newArray[x][y] = array[x][position - 1 - shift];
+                newArray[x][y] = array[x][position + shift];
             }
         }
         return newArray;
