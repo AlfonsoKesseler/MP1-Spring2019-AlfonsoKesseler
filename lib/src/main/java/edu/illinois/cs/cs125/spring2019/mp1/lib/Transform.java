@@ -14,6 +14,17 @@ public class Transform {
      @return Shifted array.
      */
     public int[][] shiftLeft(final int[][] array, final int shift) {
-        return array;
+        int[][] newArray = new int[array.length][array[0].length];
+        int move = shift % array[0].length;
+        for (int x = 0; x < array.length; x++) {
+            for (int y = 0; y < array[x].length; y++) {
+                if (array[x][y + move] > array[x].length) {
+                    newArray[x][y] = array[x][y + move - array[x].length];
+                } else {
+                    newArray[x][y] = array[x][y + move];
+                }
+            }
+        }
+        return newArray;
     }
 }
